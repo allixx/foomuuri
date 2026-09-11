@@ -4619,7 +4619,7 @@ def command_iplist_add() -> int:
     return iplist_output_values(iplists, cache, {iplist_name}, {iplist_name})
 
 
-def command_iplist_del():
+def command_iplist_del() -> int:
     """Delete entries from iplist."""
     config = minimal_config()
     iplists = parse_config_iplist(config)
@@ -6273,7 +6273,7 @@ def run_command() -> int:
         return fail(f'Unknown command: {INTERNAL.command}')
     if INTERNAL.parameters and not allow_parameters:
         return command_help()
-    return handler() or 0
+    return handler()
 
 
 def main() -> int:
